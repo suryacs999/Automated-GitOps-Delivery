@@ -180,30 +180,39 @@ export default function App() {
       </section>
 
       {/* ABOUT */}
-      <section className="section about-section" id="about">
-        <div className="about-inner">
-          <div className="section-eyebrow">About This Project</div>
-          <h2 className="section-title">End-to-End DevSecOps</h2>
-          <p className="about-body">
-            This project demonstrates an end-to-end DevSecOps CI/CD pipeline on AWS EKS —
-  integrating security throughout the delivery lifecycle. From static code analysis
-  and vulnerability scanning to GitOps-based deployment and automated Kubernetes
-  rollouts.
-          <div className="about-links">
-            <a
-              href="https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary"
-            >
-              View on GitHub
-            </a>
-            <a href="https://linkedin.com/in/srikanth-pawar" target="_blank" rel="noreferrer" className="btn btn-ghost">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
+     <section className="section about-section" id="about">
+  <div className="about-inner">
+    <div className="section-eyebrow">About This Project</div>
+    <h2 className="section-title">End-to-End DevSecOps</h2>
+
+    <p className="about-body">
+      This project demonstrates an end-to-end DevSecOps CI/CD pipeline on AWS EKS —
+      integrating security throughout the delivery lifecycle. From static code analysis
+      and vulnerability scanning to GitOps-based deployment and automated Kubernetes
+      rollouts.
+    </p>
+
+    <div className="about-links">
+      <a
+        href="https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks"
+        target="_blank"
+        rel="noreferrer"
+        className="btn btn-primary"
+      >
+        View on GitHub
+      </a>
+
+      <a
+        href="https://linkedin.com/in/srikanth-pawar"
+        target="_blank"
+        rel="noreferrer"
+        className="btn btn-ghost"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="footer">
