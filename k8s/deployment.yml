@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ci-cd-pipeline
-        image: suryacs999/ci-cd-pipeline:2
+        image: suryacs999/ci-cd-pipeline:4
         ports:
         - containerPort: 3000
 ---
