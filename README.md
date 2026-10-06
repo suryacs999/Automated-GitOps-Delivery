@@ -181,7 +181,7 @@ sudo apt-get install trivy
 ## 8️⃣ Clone Repo & Configure Pipeline
 
 ```bash
-git clone https://github.com/Heyysri/Ci-Cd-Pipeline-Security-Scanning.git
+git clone https://github.com/suryacs999/Automated-GitOps-Delivery.git
 ```
 
 ```bash
@@ -195,7 +195,7 @@ k8s/deployment.yml → replace Docker-Hub-Username
 In Jenkins:
 - New Item → Pipeline
 - Pipeline script from SCM → Git
-- Repo URL: `https://github.com/Heyysri/Ci-Cd-Pipeline-Security-Scanning.git`
+- Repo URL: `https://github.com/suryacs999/Automated-GitOps-Delivery.git`
 - Branch: `main`
 - Script Path: `Jenkinsfile`
 - Click **Build Now**
@@ -247,18 +247,18 @@ aws configure
 
 # Create cluster using eksctl
 eksctl create cluster \
-  --name eks-devsecops \
-  --region ap-south-1 \
+  --name nikhilcluster \
+  --region eu-north-1 \
   --version 1.31 \
-  --nodegroup-name linux-nodes \
+  --nodegroup-name nikhil-nodes \
   --node-type c7i-flex.large  \
   --nodes 2
 
 # Log in to Cluster
-aws eks update-kubeconfig --name eks-devsecops
+aws eks update-kubeconfig --name nikhilcluster
 
 # Delete EKS Cluster
-eksctl delete cluster --name eks-devsecops --region ap-south-1
+eksctl delete cluster --name nikhilcluster --region eu-north-1
 
 ```
 
@@ -268,25 +268,25 @@ eksctl delete cluster --name eks-devsecops --region ap-south-1
 
 ```bash
 # Create namespace
-kubectl create namespace argocd
+kubectl create namespace argocdnik
 
 # Install Argo CD
-kubectl apply -n argocd \
+kubectl apply -n argocdnik \
   -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 # Wait for pods
-kubectl get pods -n argocd
+kubectl get pods -n argocdnik
 
 # Expose UI
-kubectl patch svc argocd-server -n argocd \
+kubectl patch svc argocd-server -n argocdnik \
   -p '{"spec": {"type": "LoadBalancer"}}'
 
 # Get external IP
-kubectl get svc -n argocd
+kubectl get svc -n argocdnik
 
 # Get admin password
 kubectl get secret argocd-initial-admin-secret \
-  -n argocd \
+  -n argocdnik \
   -o jsonpath="{.data.password}" | base64 -d
 ```
 
@@ -296,10 +296,10 @@ Access Argo CD: `http://<ARGOCD-EXTERNAL-IP>`
 
 | Field | Value |
 |-------|-------|
-| App Name | `devsecops-app` |
+| App Name | `argocdnik` |
 | Project | `default` |
 | Sync Policy | Automatic |
-| Repo URL | `https://github.com/Heyysri/Ci-Cd-Pipeline-Security-Scanning.git` |
+| Repo URL | `https://github.com/suryacs999/Automated-GitOps-Delivery.git` |
 | Path | `k8s` |
 | Cluster | `https://kubernetes.default.svc` |
 | Namespace | `default` |
@@ -346,7 +346,7 @@ Access app: `http://<EXTERNAL-IP>` ✅
 # 📂 Project Structure
 
 ```text
-Ci-Cd-Pipeline-Security-Scanning/
+Automated-GitOps-Delivery/
 ├── src/
 ├── public/
 ├── k8s/
@@ -377,11 +377,11 @@ Ci-Cd-Pipeline-Security-Scanning/
 
 # 👤 Author
 
-## Srikanth Sanjay Pawar
+## NIKHIL SURYAWANSHI
 
-- LinkedIn: https://linkedin.com/in/srikanth-pawar
-- GitHub: https://github.com/Heyysri
-- Email: sreekanthsanjay5@gmail.com
+- LinkedIn: https://www.linkedin.com/in/niksuryawanshi9999
+- GitHub: https://github.com/suryacs999
+- Email: niksuryawanshi9999@outlook.com
 
 ---
 
