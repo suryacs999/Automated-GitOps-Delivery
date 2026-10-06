@@ -9,12 +9,12 @@ pipeline {
     environment {
         SCANNER_HOME          = tool 'sonar-scanner'
         DOCKER_IMAGE          = 'ci-cd-pipeline'
-        DOCKER_REGISTRY       = '<DOCKER-HUB-USERNAME>'
+        DOCKER_REGISTRY       = 'suryacs999'
         DOCKER_CREDENTIALS_ID = 'docker-cred'
         MANIFEST_FILE         = 'k8s/deployment.yml'
-        GIT_REPO_NAME         = 'DevSecOps-CI-CD-Pipeline-Aws-Eks'
-        GIT_USER_NAME         = '<GIT-USERNAME>'
-        GIT_EMAIL             = 'GIT-EMAIL'
+        GIT_REPO_NAME         = 'Automated-GitOps-Delivery'
+        GIT_USER_NAME         = 'suryacs999'
+        GIT_EMAIL             = 'nikhilsuryawanshi999@gmail.com'
     }
 
     stages {
@@ -35,8 +35,8 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {
                     sh """
                         ${SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectName=DevSecOps-CI-CD-Pipeline-Aws-Eks \
-                        -Dsonar.projectKey=DevSecOps-CI-CD-Pipeline-Aws-Eks
+                        -Dsonar.projectName=Automated-GitOps-Delivery \
+                        -Dsonar.projectKey=Automated-GitOps-Delivery
                     """
                 }
             }
